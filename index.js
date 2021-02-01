@@ -5,8 +5,9 @@
 const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
-    // Your code goes here ...
+    userFirstNames.push(user.firstName)
   }
+  console.log(userFirstNames)
 };
 
 getFirstNames(usersArray);
@@ -18,7 +19,11 @@ getFirstNames(usersArray);
 // ***************************************************************************
 
 const getFullNames = arr => {
-  // Your code goes here ...
+  const userwholeNames = []
+  for (let user of arr) {
+    userwholeNames.push(`${user.firstName} ${user.lastName}`)
+  }
+  console.log(userwholeNames)
 };
 
 getFullNames(usersArray);
@@ -31,7 +36,18 @@ getFullNames(usersArray);
 // ***************************************************************************
 
 const getUsersCreditDetails = arr => {
-  // Your code goes here ...
+  let newArr = [];
+  for (let user of arr) {
+    const{firstName,lastName,balance} = user
+    
+    const userDetails = {
+           firstName,
+           lastName,
+           balance
+     }
+    newArr.push(userDetails)
+   }
+  console.log(newArr);
 };
 
 getUsersCreditDetails(usersArray);
@@ -49,10 +65,24 @@ getUsersCreditDetails(usersArray);
 // ***************************************************************************
 
 const genderView = users => {
-  // Your code goes here ...
+  let femaleUsers = [];
+  let maleUsers = [];
+  
+  const filteredArr = users.filter(user => user.gender === 'female')
+    for (let user of filteredArr) {
+      femaleUsers.push(`${user.firstName} ${user.lastName}`)
+    }
+   console.log(femaleUsers)
+  const filteredManArr = users.filter(user => user.gender === 'male')
+    for (let user of filteredManArr) {
+      maleUsers.push(`${user.firstName} ${user.lastName}`)
+    }
+  console.log(maleUsers)
+ return {femaleUsers, maleUsers}
 };
 
 genderView(usersArray);
+
 // expected output:
 // {
 //    femaleUsers: [ 'Tracie May', 'Kendra Hines', 'Rachelle Schneider', 'Lizzie Alford' ],
